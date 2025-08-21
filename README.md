@@ -20,4 +20,4 @@ A simple to-do list app to help users manage their tasks efficiently. It allows 
 
 This project is deployed on GitHub Pages:
 
-[https://github.com/RStoll1/se_project_todo-app](https://github.com/RStoll1/se_project_todo-app)
+https://rstoll1.github.io/se_project_todo-app/
