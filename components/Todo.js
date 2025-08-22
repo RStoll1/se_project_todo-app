@@ -12,7 +12,7 @@ class Todo {
         this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
     }
 
-    _setEventListener() {
+    _setEventListeners() {
         this._todoDeleteBtn.addEventListener("click", () => {
             this._todoElement.remove();
         });
@@ -45,7 +45,7 @@ class Todo {
         todoNameEl.textContent = this._data.name;
 
         this._generateCheckboxEl();
-        this._setEventListener();
+        this._setEventListeners();
         this._generateDate();
 
         return this._todoElement;
