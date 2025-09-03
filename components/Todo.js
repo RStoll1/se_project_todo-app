@@ -4,7 +4,7 @@ class Todo {
         this._templateElement = document.querySelector(selector);
         this._handleCheck = handleCheck;
         this._handleDelete = handleDelete;
-        this._completed = data.completed
+        this._completed = data.completed;
     }
 
     _generateCheckboxEl() {
