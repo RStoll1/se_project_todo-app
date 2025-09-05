@@ -10,8 +10,6 @@ import TodoCounter from "../components/TodoCounter.js";
 const addTodoButton = document.querySelector(".button_action_add");
 const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = addTodoPopupEl.querySelector(".popup__form");
-const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
-const todosList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
@@ -31,16 +29,21 @@ const addTodoPopup = new PopupWithForm({
   handleFormSubmit: (inputValues) => {
     const { name, date } = inputValues;
 
-    const dateInput = new Date(date);
-    dateInput.setMinutes(dateInput.getMinutes() + dateInput.getTimezoneOffset());
+    if (date !== undefined) {
+      const dateInput = new Date(date);
+      dateInput.setMinutes(dateInput.getMinutes() + dateInput.getTimezoneOffset());
 
-    const id = uuidv4();
-    const values = { name, date: dateInput, id };
+      const id = uuidv4();
+      const values = { name, date: dateInput, id };
 
-    const newTodoElement = generateTodo(values);
-    section.addItem(newTodoElement);
-    todoCounter.updateTotal(true);
-    addTodoPopup.close();
+      const newTodoElement = generateTodo(values);
+      section.addItem(newTodoElement);
+      todoCounter.updateTotal(true);
+      newToDoValidator.resetValidation();
+      addTodoPopup.close();
+    } else {
+      console.log("Date is undefined");
+    }
   }
 });
 
